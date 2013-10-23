@@ -1,0 +1,434 @@
+-- --------------------------------------------------------------------------------
+-- Routine DDL BUSCACLIENTE
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscaCliente`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM cliente WHERE nombre=V_BUSCAR ;
+ 
+
+
+END
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
+-- Routine DDL BUSCA EMPLEADO
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `buscaempleado`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM Empleado WHERE em_DPI=V_BUSCAR ;
+ 
+
+
+END
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
+-- Routine DDL BUSCAPROVEEDOR
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `buscaproveedor`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM proveedor WHERE nombre_comercial=V_BUSCAR ;
+ 
+
+
+END
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
+-- Routine DDL BUSCA CARGO
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `buscar_cargo`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM cargo_empleado WHERE nombre=V_BUSCAR ;
+ 
+
+
+END
+
+--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
+-- Routine DDL BuscarClienteFactura
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarClienteFactura`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM cliente WHERE nombre=V_BUSCAR ;
+ 
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDLBuscarClienteNit
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `BuscarClienteNit`(V_BUSCAR VARCHAR(50))
+BEGIN
+
+SELECT * FROM cliente WHERE nit=V_BUSCAR ;
+ 
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL			guarda_empleados
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `guarda_empleados`(vnombre varchar (50), vapellido varchar (50), vdireccion varchar (50), vtelefono varchar (50), vdpi varchar (50), v_id_ciudad int, v_id_cargo int, vuser varchar (50), vclave varchar (50), vtipo int)
+BEGIN
+insert into empleado (em_nombre, em_apellido, em_direccion, em_telefono, em_dpi, id_ciudad, id_cargo, user, clave, tipo_usuario) values (vnombre, vapellido, vdireccion, vtelefono, vdpi, v_id_ciudad, v_id_cargo, vuser, vclave, vtipo);
+
+
+END
+
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL 		GuardaCliente
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GuardaCliente`(v_id_cliente varchar(7), v_nit varchar(10), v_nombre varchar (50), v_direccion varchar (50), v_telefono varchar (50))
+BEGIN
+
+insert into cliente (id_cliente, nit, nombre, direccion, telefono) values (v_id_cliente, v_nit, v_nombre, v_direccion, v_telefono );
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDLGuardaMarca
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GuardaMarca`( COD int, v_descripcion varchar (100) )
+BEGIN
+
+
+
+INSERT INTO marca_producto (id_marca, descripcion) values (COD, v_descripcion);
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDLguardar_cargo
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `guardar_cargo`(vdescripcion varchar (50), vsueldo float)
+begin 
+insert into cargo_empleado (descripcion , sueldo) values (`vdescripcion`, `vsueldo`);
+end
+
+-- --------------------------------------------------------------------------------
+-- Routine DDLguardar_proveedor
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `guardar_proveedor`(
+	vnom_comer varchar (50)
+,	vdireccion varchar (50)
+,	vtelefono varchar (50)
+,	v_id_ciudad int
+,	vcorreo varchar (50)
+,	vnom_contacto varchar (50)
+,	vtel_contacto varchar (50)
+	)
+begin 
+insert into proveedor (
+	nombre_comercial
+,	direccion
+,	telefono
+,	id_ciudad
+,	correo
+,	nombre_contacto
+,	telefono_contacto
+) 
+values
+(
+	`vnom_comer`
+,	`vdireccion`
+,	`vtelefono`
+,	`v_id_ciudad`
+,	`vcorreo`
+,	`vnom_contacto`
+,	`vtel_contacto`
+);
+end
+
+-- --------------------------------------------------------------------------------
+-- Routine DDLmodifica_empleado
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modifica_empleado`(vid_empleado int, vnombre varchar (50), vapellido varchar (50), vdireccion varchar (50), vtelefono varchar (50), vdpi varchar (50), v_id_ciudad int, v_id_cargo int, vuser varchar (50), vclave varchar (50), vtipo int)
+BEGIN
+update empleado set em_nombre=vnombre, em_apellido=vapellido, em_direccion=vdireccion, em_telefono=vtelefono, em_dpi=vdpi,id_ciudad=v_id_ciudad, id_cargo=v_id_cargo,user=vuser, clave=vclave, tipo_usuario=vtipo where id_empleado=vid_empleado;
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL			modifica_proveedor
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modifica_proveedor`(
+	vid_proveedor int
+,	vnom_comer varchar (50)
+,	vdireccion varchar (50)
+,	vtelefono varchar (50)
+,	v_id_ciudad int
+,	vcorreo varchar (50)
+,	vnom_contacto varchar (50)
+,	vtel_contacto varchar (50)
+	)
+begin 
+update proveedor set 
+
+	nombre_comercial=vnom_comer
+,	direccion=vdireccion
+,	telefono=vtelefono
+,	id_ciudad=v_id_ciudad
+,	correo=vcorreo
+,	nombre_contacto=vnom_contacto
+,	telefono_contacto=vtel_contacto
+	
+
+where id_proveedor=vid_proveedor;
+end
+
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL 	ModificaCliente
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ModificaCliente`(V_cliente varchar(7), v_NIT varchar(10), v_nombre VARCHAR(50), v_direccion VARCHAR(50), v_telefono VARCHAR(50))
+BEGIN
+
+
+UPDATE cliente SET nit=v_NIT, nombre=v_nombre, direccion=v_direccion, telefono=v_telefono WHERE id_cliente=V_cliente;
+
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine modificar_cargo
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modificar_cargo`(vid_cargo int, vdescripcion varchar (50), vsueldo float)
+BEGIN
+update cargo_empleado set descripcion=vdescripcion, sueldo=vsueldo where id_cargo=vid_cargo;
+END
+
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL				mostrarcargos
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarcargos`()
+BEGIN
+select cargo_empleado.id_cargo,
+		cargo_empleado.descripcion,
+		cargo_empleado.sueldo
+from cargo_empleado;
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL			MostrarCliente
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarCliente`()
+BEGIN
+
+SELECT * FROM `cliente` ORDER BY cliente.nombre;
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL		mostrarempleado
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarempleado`()
+BEGIN
+
+select 
+       empleado.id_empleado,
+	   empleado.em_nombre,
+	   empleado.em_apellido,
+	   empleado.em_direccion,
+	   empleado.em_telefono,
+	   empleado.em_dpi,
+	   ciudad.descripcion,
+	   cargo_empleado.descripcion,
+	   empleado.user,
+	   empleado.clave,
+	   nivel_user.descripcion
+	   
+    from
+        empleado,ciudad,cargo_empleado,nivel_user
+    where
+        empleado.id_ciudad=ciudad.id_ciudad
+		and empleado.id_cargo=cargo_empleado.id_cargo
+		and empleado.tipo_usuario=nivel_user.nivel;
+		
+		
+
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL				MostrarProd
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarProd`()
+BEGIN
+
+SELECT producto.id_producto, producto.descripcion, producto.precio_costo, producto.precio_venta, producto.stock FROM `producto`,`proveedor`,`marca_producto` WHERE marca_producto.id_marca=producto.id_marca and proveedor.id_proveedor=producto.id_proveedor ORDER BY producto.descripcion;
+
+END
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL mostrarproveedor
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `mostrarproveedor`()
+BEGIN
+
+select 
+        `proveedor`.`id_proveedor` AS `id_proveedor`,
+        `proveedor`.`nombre_comercial` AS `nombre_comercial`,
+        `proveedor`.`direccion` AS `direccion`,
+        `proveedor`.`telefono` AS `telefono`,
+        `ciudad`.`descripcion` AS `descripcion`,
+        `proveedor`.`correo` AS `correo`,
+        `proveedor`.`nombre_contacto` AS `nombre_contacto`,
+        `proveedor`.`telefono_contacto` AS `telefono_contacto`
+    from
+        (`proveedor`
+        join `ciudad`)
+    where
+        (`proveedor`.`id_ciudad` = `ciudad`.`id_ciudad`);
+
+
+END
+
+
+
+
+----------------------
+-- --------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------
+
+
+-- --------------------------------------------------------------------------------
+-- Routine DDL
+-- Note: comments before and after the routine body will not be stored by the server
+-- --------------------------------------------------------------------------------
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `guardacompra`(
+	vtipodocumento varchar (50)
+,	vserie varchar (50)
+,	vnodocumento varchar (50)
+,	vproducto int
+,	vproveedor int
+, 	vfechacompra date 
+,	vcantproducto float 
+,	vcosto	float
+,	vventa float
+, 	vgrantotal float
+, 	vturno int
+,	vfechareg date
+
+)
+BEGIN
+insert into compra
+ (
+	tipo_documento
+,	seriedocumento
+,	documento_compra
+,	id_producto
+,	proveedor_compra
+,	fecha_compra
+,	cantidad_producto
+,	precio_costo
+,	precio_venta
+,	total_compra
+,	turno_empleado
+,	fecha_registro
+)
+VALUES
+	(
+	vtipodocumento
+,	vserie
+,	vnodocumento
+,	vproducto 
+,	vproveedor
+, 	vfechacompra
+,	vcantproducto
+,	vcosto
+,	vventa
+, 	vgrantotal
+, 	vturno
+,	vfechareg
+)
+;
+UPDATE producto SET 
+precio_costo=vcosto,
+precio_venta=vventa,
+stock=stock+vcantproducto
+where
+id_producto=vproducto
+;
+
+END
+
+
+
+call guardacompra ('FACTURA','A','001',1,1,'2013-10-01',100,125.50,300,120.50,4,'2013-10-01')
+------------------------------------------------------
+-----------------------------------------------------
+
+
+
+
+
