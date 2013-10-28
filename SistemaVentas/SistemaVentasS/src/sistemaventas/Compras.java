@@ -32,7 +32,7 @@ String idproducto;
      */
     public Compras() {
         
-        cbodocumento = new JComboBox();
+                cbodocumento = new JComboBox();
 		cbodocumento.addItem("uno");
 		cbodocumento.addItem("dos");
 		cbodocumento.addItem("tres");
@@ -47,6 +47,7 @@ String idproducto;
     }
 
 
+   
      public void llenarprove(){
 
   Connection cn;
@@ -113,8 +114,6 @@ catch (Exception e) {}
 
 
 }   
-    
-    
     
     
   public void llenarproducto(){
@@ -228,12 +227,12 @@ catch (Exception e) {}
         jScrollPane1 = new javax.swing.JScrollPane();
         tablacompra = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        btnnuevo1 = new javax.swing.JButton();
-        btnguardar1 = new javax.swing.JButton();
-        btnbuscar1 = new javax.swing.JButton();
-        btnmodificar1 = new javax.swing.JButton();
-        btneliminar1 = new javax.swing.JButton();
-        btncancelar1 = new javax.swing.JButton();
+        btnnuevo = new javax.swing.JButton();
+        btnguardar = new javax.swing.JButton();
+        btnbuscar = new javax.swing.JButton();
+        btnmodificar = new javax.swing.JButton();
+        btneliminar = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
         btnsalir1 = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro de Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
@@ -362,7 +361,7 @@ catch (Exception e) {}
         jLabel14.setText("Unidades:");
 
         txtturno.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtturno.setText("3");
+        txtturno.setText("10");
         txtturno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtturnoKeyTyped(evt);
@@ -407,23 +406,11 @@ catch (Exception e) {}
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtunidades)
                             .addComponent(dtregistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtserie)
                             .addComponent(txtnodocumento)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblproveedor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblproducto))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtgrantotal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -441,7 +428,21 @@ catch (Exception e) {}
                         .addGap(28, 28, 28)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtventa, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtventa, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblproveedor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblproducto))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(263, 263, 263)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel12)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtgrantotal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -518,51 +519,51 @@ catch (Exception e) {}
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnnuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User add).jpg"))); // NOI18N
-        btnnuevo1.setText("NUEVO");
-        btnnuevo1.addActionListener(new java.awt.event.ActionListener() {
+        btnnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User add).jpg"))); // NOI18N
+        btnnuevo.setText("NUEVO");
+        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnuevo1ActionPerformed(evt);
+                btnnuevoActionPerformed(evt);
             }
         });
 
-        btnguardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (Save).jpg"))); // NOI18N
-        btnguardar1.setText("REGISTRAR");
-        btnguardar1.addActionListener(new java.awt.event.ActionListener() {
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (Save).jpg"))); // NOI18N
+        btnguardar.setText("REGISTRAR");
+        btnguardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar1ActionPerformed(evt);
+                btnguardarActionPerformed(evt);
             }
         });
 
-        btnbuscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (Search).jpg"))); // NOI18N
-        btnbuscar1.setText("BUSCAR");
-        btnbuscar1.addActionListener(new java.awt.event.ActionListener() {
+        btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (Search).jpg"))); // NOI18N
+        btnbuscar.setText("BUSCAR");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbuscar1ActionPerformed(evt);
+                btnbuscarActionPerformed(evt);
             }
         });
 
-        btnmodificar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User edit).jpg"))); // NOI18N
-        btnmodificar1.setText("MODIFICAR");
-        btnmodificar1.addActionListener(new java.awt.event.ActionListener() {
+        btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User edit).jpg"))); // NOI18N
+        btnmodificar.setText("MODIFICAR");
+        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmodificar1ActionPerformed(evt);
+                btnmodificarActionPerformed(evt);
             }
         });
 
-        btneliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User delete).jpg"))); // NOI18N
-        btneliminar1.setText("ELIMINAR");
-        btneliminar1.addActionListener(new java.awt.event.ActionListener() {
+        btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/16 (User delete).jpg"))); // NOI18N
+        btneliminar.setText("ELIMINAR");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminar1ActionPerformed(evt);
+                btneliminarActionPerformed(evt);
             }
         });
 
-        btncancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Wzdelete.jpg"))); // NOI18N
-        btncancelar1.setText("CANCELAR");
-        btncancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Wzdelete.jpg"))); // NOI18N
+        btncancelar.setText("CANCELAR");
+        btncancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelar1ActionPerformed(evt);
+                btncancelarActionPerformed(evt);
             }
         });
 
@@ -581,30 +582,30 @@ catch (Exception e) {}
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnmodificar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btneliminar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnbuscar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnnuevo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnguardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btneliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnnuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnsalir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncancelar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btncancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnnuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnbuscar1)
+                .addComponent(btnbuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnmodificar1)
+                .addComponent(btnmodificar)
                 .addGap(9, 9, 9)
-                .addComponent(btneliminar1)
+                .addComponent(btneliminar)
                 .addGap(9, 9, 9)
-                .addComponent(btncancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnsalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -614,33 +615,33 @@ catch (Exception e) {}
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(808, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
+                .addGap(66, 66, 66))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(287, Short.MAX_VALUE)))
+                    .addContainerGap(265, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(169, Short.MAX_VALUE)))
+                    .addContainerGap(181, Short.MAX_VALUE)))
         );
 
         pack();
@@ -711,7 +712,7 @@ catch (Exception e) {}
         // TODO add your handling code here:
     }//GEN-LAST:event_txtunidadesKeyTyped
 
-    private void btnnuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevo1ActionPerformed
+    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         // TODO add your handling code here:
 //        txtproveedor.requestFocus();
         //llenarciudad();
@@ -724,14 +725,14 @@ catch (Exception e) {}
         btneliminar.setEnabled(false);
         btnnuevo.setEnabled(false);
         btnbuscar.setEnabled(false);
-    }//GEN-LAST:event_btnnuevo1ActionPerformed
+    }//GEN-LAST:event_btnnuevoActionPerformed
 
     
     
     
     
     
-    private void btnguardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar1ActionPerformed
+    private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         // TODO add your handling code here:
         
         
@@ -764,6 +765,7 @@ catch (Exception e) {}
          costo=String.valueOf(tablacompra.getValueAt(i, 3)) ;
          venta=String.valueOf(tablacompra.getValueAt(i, 4)) ;
          turno=txtturno.getText();
+         
          grantotal=txtgrantotal.getText();
            JOptionPane.showMessageDialog(this,"11!!"+datereg,"Atencion",JOptionPane.INFORMATION_MESSAGE);
         try {
@@ -772,7 +774,7 @@ catch (Exception e) {}
             //enviar datos a validar
 
             {
-                    JOptionPane.showMessageDialog(this,"22!!","Atencion",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"procedimiento","Atencion",JOptionPane.INFORMATION_MESSAGE);
                 cts=cn.prepareCall("{ call guardacompra(?,?,?,?,?,?,?,?,?,?,?,?)}");
 
                 cts.setString(1, doc);
@@ -787,7 +789,7 @@ catch (Exception e) {}
                 cts.setString(10, grantotal);
                 cts.setString(11, turno);
                 cts.setString(12, datereg);
-               
+                //cts.setString(13, tipotran);
                 
                 
                 
@@ -827,9 +829,9 @@ catch (Exception e) {}
              JOptionPane.showMessageDialog(this,e.getMessage(),"Atencion",JOptionPane.INFORMATION_MESSAGE);
         }
        }
-    }//GEN-LAST:event_btnguardar1ActionPerformed
+    }//GEN-LAST:event_btnguardarActionPerformed
 
-    private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
    /*     String cod=txtfiltro.getText(); //JOptionPane.showInputDialog("INGRESE EL DNI DE EMPLEADO A BUSCAR si decea puede editalpara modificar o eliminar el registro");
         String id=lblproveedor.getText();
@@ -864,9 +866,9 @@ catch (Exception e) {}
             }
         } catch (SQLException | HeadlessException e) {JOptionPane.showMessageDialog(this, e.toString());
         }*/
-    }//GEN-LAST:event_btnbuscar1ActionPerformed
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
-    private void btnmodificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificar1ActionPerformed
+    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         // TODO add your handling code here:
 
 
@@ -938,9 +940,9 @@ catch (Exception e) {}
         txtcontacto.setText("");
         txtdireccion.setText("");
 */
-    }//GEN-LAST:event_btnmodificar1ActionPerformed
+    }//GEN-LAST:event_btnmodificarActionPerformed
 
-    private void btneliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminar1ActionPerformed
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
         DefaultTableModel tabla= (DefaultTableModel) tablacompra.getModel();
         int indFil = tablacompra.getSelectedRow();
@@ -960,13 +962,13 @@ catch (Exception e) {}
        }
         txtgrantotal.setText(String.valueOf(grantotal)); 
      
-    }//GEN-LAST:event_btneliminar1ActionPerformed
+    }//GEN-LAST:event_btneliminarActionPerformed
 
-    private void btncancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelar1ActionPerformed
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
      //   BOTONES();
         //DESABILITAR();
-    }//GEN-LAST:event_btncancelar1ActionPerformed
+    }//GEN-LAST:event_btncancelarActionPerformed
 
     private void btnsalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalir1ActionPerformed
         // TODO add your handling code here:
@@ -988,18 +990,11 @@ catch (Exception e) {}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btncancelar1;
     private javax.swing.JButton btneliminar;
-    private javax.swing.JButton btneliminar1;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JButton btnguardar1;
     private javax.swing.JButton btnmodificar;
-    private javax.swing.JButton btnmodificar1;
     private javax.swing.JButton btnnuevo;
-    private javax.swing.JButton btnnuevo1;
-    private javax.swing.JButton btnsalir;
     private javax.swing.JButton btnsalir1;
     private javax.swing.JComboBox cbodocumento;
     private javax.swing.JComboBox cboproducto;
@@ -1022,7 +1017,6 @@ catch (Exception e) {}
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblproducto;

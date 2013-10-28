@@ -894,12 +894,6 @@ if((car<'0' || car>'9') && (car<' '||car>' ')&&(car<'.'||car>'.')) evt.consume()
         // TODO add your handling code here:
         
         
-        try{
-        MarcaProducto nueva = new MarcaProducto();
-        SistemaV.jDesktopPane1.add(nueva);
-        nueva.toFront();
-        nueva.setVisible(true);
-       }catch(Exception e){}
         
         
         

@@ -252,7 +252,45 @@ catch (Exception e) {}
 }   
  
  
- 
+ private void SelecionaCL(){
+        
+        int row=jTable1.getSelectedRow();
+        String id=jTable1. getValueAt   (row, 0).toString();
+        String prove=jTable1.getValueAt   (row, 1).toString();
+        String direc=jTable1.getValueAt   (row, 2).toString();
+        String tel=jTable1.getValueAt (row, 3).toString();
+        String depto=jTable1.getValueAt   (row, 4).toString();
+        String email=jTable1.getValueAt   (row, 5).toString();
+        String contacto=jTable1.getValueAt (row, 6).toString();
+        String telcontacto=jTable1.getValueAt (row, 7).toString();
+        String tipo=jTable1.getValueAt  (row, 8).toString();
+        
+        
+        
+        lblproveedor.setText(id);
+        txtproveedor.setText(prove);
+        txtdireccion.setText(direc);
+        txttelefono.setText(tel);
+        lbldepto.setText(depto);
+        txtcorreo.setText (email);
+        txtcontacto.setText (contacto);
+        txttelcontacto.setText (tipo);
+        lblnivel.setText(contacto);
+        cbodepto.setSelectedItem(depto);
+        cbonivel.setSelectedItem(tipo);
+        
+       
+        
+        
+       
+     
+        //jTextField5.setText(id);
+        
+        
+            
+           // jTextField1.setText(Clientes.get(tb.getSelectedRows()).get);
+        
+    }   
  
  
  
@@ -356,6 +394,10 @@ public void ABILITAR(){
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtfiltro = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        labelHeader1 = new org.edisoncor.gui.label.LabelHeader();
+        txtBuscaClientes = new org.edisoncor.gui.textField.TextFieldRound();
+        btnVerModificar = new org.edisoncor.gui.button.ButtonAeroLeft();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos De Proveedores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), new java.awt.Color(51, 0, 255))); // NOI18N
 
@@ -732,6 +774,59 @@ public void ABILITAR(){
             }
         });
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        labelHeader1.setText("Ingrese nombre del empleado que desea buscar....");
+
+        txtBuscaClientes.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtBuscaClientes.setDisabledTextColor(new java.awt.Color(153, 204, 255));
+        txtBuscaClientes.setSelectionColor(new java.awt.Color(102, 204, 255));
+        txtBuscaClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscaClientesActionPerformed(evt);
+            }
+        });
+        txtBuscaClientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscaClientesKeyReleased(evt);
+            }
+        });
+
+        btnVerModificar.setBackground(new java.awt.Color(112, 67, 67));
+        btnVerModificar.setText("Ver Empleado");
+        btnVerModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerModificarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtBuscaClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelHeader1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(btnVerModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelHeader1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBuscaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btnVerModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -748,15 +843,20 @@ public void ABILITAR(){
                 .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(230, 230, 230))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(230, 230, 230))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -767,6 +867,8 @@ public void ABILITAR(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -1179,7 +1281,41 @@ public void ABILITAR(){
         
     }//GEN-LAST:event_txttelcontactoKeyTyped
 
+    private void txtBuscaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscaClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscaClientesActionPerformed
+
+    private void txtBuscaClientesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaClientesKeyReleased
+        // TODO add your handling code here:
+
+        cargar(txtBuscaClientes.getText());
+
+        char car=evt.getKeyChar();
+        if((car<'a'||car>'z')&&(car<'A'||car>'Z')&&(car<' '||car>' ')) evt.consume();
+
+        String s;
+        s= txtBuscaClientes.getText();
+        txtBuscaClientes.setText(s.toUpperCase());
+    }//GEN-LAST:event_txtBuscaClientesKeyReleased
+
+    private void btnVerModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerModificarActionPerformed
+        // TODO add your handling code here:
+
+        SelecionaCL();
+        ABILITAR();
+
+        this.btnguardar.setEnabled(false);
+        this.btnnuevo.setEnabled(false);
+        this.btnbuscar.setEnabled(false);
+        this.btnmodificar.setEnabled(true);
+       
+
+       
+      
+    }//GEN-LAST:event_btnVerModificarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonAeroLeft btnVerModificar;
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btneliminar;
@@ -1203,11 +1339,14 @@ public void ABILITAR(){
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private org.edisoncor.gui.label.LabelHeader labelHeader1;
     private javax.swing.JLabel lbldepto;
     private javax.swing.JLabel lblnivel;
     private javax.swing.JLabel lblproveedor;
+    private org.edisoncor.gui.textField.TextFieldRound txtBuscaClientes;
     private javax.swing.JTextField txtcontacto;
     private javax.swing.JTextField txtcorreo;
     private javax.swing.JTextField txtdireccion;

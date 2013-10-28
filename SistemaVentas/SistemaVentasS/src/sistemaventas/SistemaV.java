@@ -47,7 +47,7 @@ public class SistemaV extends javax.swing.JFrame {
        
        
         SimpleDateFormat formato1 = new SimpleDateFormat(
-            "dd/MM/yyyy", Locale.getDefault());
+            "yyyy/MM/dd", Locale.getDefault());
       //  SimpleDateFormat formato2 = new SimpleDateFormat(
           //  "dd 'de' MMMM 'de' yyyy", Locale.getDefault());   
         
@@ -103,10 +103,12 @@ public class SistemaV extends javax.swing.JFrame {
         menuRegistros = new javax.swing.JMenu();
         menuCliente = new javax.swing.JMenuItem();
         menuProducto = new javax.swing.JMenuItem();
-        menuEmpleado = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        menuEmpleado = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -270,17 +272,6 @@ public class SistemaV extends javax.swing.JFrame {
         });
         menuRegistros.add(menuProducto);
 
-        menuEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        menuEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_users.png"))); // NOI18N
-        menuEmpleado.setMnemonic('p');
-        menuEmpleado.setText("Empleados");
-        menuEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEmpleadoActionPerformed(evt);
-            }
-        });
-        menuRegistros.add(menuEmpleado);
-
         jMenuItem14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jMenuItem14.setText("Proveedor");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
@@ -299,6 +290,7 @@ public class SistemaV extends javax.swing.JFrame {
         });
         menuRegistros.add(jMenuItem15);
 
+        jMenuItem17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jMenuItem17.setText("Compras");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -306,6 +298,31 @@ public class SistemaV extends javax.swing.JFrame {
             }
         });
         menuRegistros.add(jMenuItem17);
+
+        jMenu6.setText("Empleados");
+
+        menuEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        menuEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_users.png"))); // NOI18N
+        menuEmpleado.setMnemonic('p');
+        menuEmpleado.setText("Nuevo Empleado");
+        menuEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEmpleadoActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuEmpleado);
+
+        jMenuItem16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/modifier-texte-icone-4855-48.png"))); // NOI18N
+        jMenuItem16.setText("Registro Empleados");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem16);
+
+        menuRegistros.add(jMenu6);
 
         menuBar.add(menuRegistros);
 
@@ -617,12 +634,9 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
 
     private void menuEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEmpleadoActionPerformed
         // TODO add your handling code here:
-       try{
-        Empleados em = new Empleados();
-        jDesktopPane1.add(em);
-        em.show();
-        em.setLocation(50, 10);
-       }catch(Exception e){}
+        form_empleados em = new form_empleados(new javax.swing.JDialog(),true);
+        em.setVisible(true);
+        
     }//GEN-LAST:event_menuEmpleadoActionPerformed
 
    
@@ -691,50 +705,22 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
         
-       try{
-        Factura f=new Factura();
-        jDesktopPane1.add(f);
-       f.setMaximum(rootPaneCheckingEnabled);
-       f.lblEmpleado.setText(lblUsuarioActivo.getText());
-        f.show();
-        f.setVisible(true);
-        
-       }catch(Exception e){}
+      
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         // TODO add your handling code here:
-       // try{
-        Boleta b=new Boleta();
-        jDesktopPane1.add(b);
-       // b.setLocation(50, 5);
-        b.show();
-       // b.setVisible(true);
-      //  }catch (Exception e){JOptionPane.showMessageDialog(this,"error de ejecucion"+e.getMessage());
-       // }
+      
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
-        try{
-        ConsultaFactura cf=new ConsultaFactura();
-        jDesktopPane1.add(cf);
-        cf.setLocation(50, 5);
-        cf.show();
-        cf.setVisible(true);
-        
-        }catch(Exception e){}
+       
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        try{
-        ConsultaBoleto cb=new ConsultaBoleto();
-        jDesktopPane1.add(cb);
-        cb.setLocation(50, 5);
-        cb.show();
-        cb.setVisible(true);
-        }catch(Exception e){}
+       
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -802,13 +788,27 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         // TODO add your handling code here:
-        try{
-        Compras em = new Compras();
-        jDesktopPane1.add(em);
-        em.show();
-        em.setLocation(50, 10);
-       }catch(Exception e){}
+        
+        form_Compras em = new form_Compras(new javax.swing.JDialog(),true);
+        em.lblpasafecha.setText(lblfecha.getText().toString());
+        em.txtturno.setText(control.getText().toString());
+        
+        em.setVisible(true);
+        
+       
+        
+    
+       
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+        form_Vistaempleados em = new form_Vistaempleados(new javax.swing.JDialog(),true);
+        em.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -868,6 +868,7 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
@@ -875,6 +876,7 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -886,7 +888,7 @@ lblhora.setText(hora + ":" + minutos + ":" + segundos);
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel2;
     public static javax.swing.JLabel lblUsuarioActivo;
-    private javax.swing.JLabel lblfecha;
+    public static javax.swing.JLabel lblfecha;
     private javax.swing.JLabel lblhora;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuCliente;
